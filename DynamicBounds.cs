@@ -1,17 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DynamicBounds : MonoBehaviour
 {
-    public bool debugbool;
-
-    public GameObject skinnedMeshRendererGameObject;
+    [SerializeField]
+    private GameObject skinnedMeshRendererGameObject;
+    [SerializeField]
+    private BoxCollider boxCollider;
     private SkinnedMeshRenderer smr;
-    public BoxCollider boxCollider;
-
     private Transform rootGO;
-
 
     private void Awake()
     {
@@ -26,5 +22,4 @@ public class DynamicBounds : MonoBehaviour
         boxCollider.center = smr.bounds.center - rootGO.transform.position;
         boxCollider.size = smr.bounds.size;
     }
-
 }
